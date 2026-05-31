@@ -1,0 +1,167 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 1px solid #ece4ef;
+  border-radius: 18px;
+  background: white;
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover,
+.product-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 40px rgba(145, 68, 126, 0.12);
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-info {
+  padding: 1.25rem;
+}
+
+.product-info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.product-price {
+  margin: 0;
+  font-weight: 700;
+  color: #8a2b79;
+}
+
+.product-description {
+  margin: 0.85rem 0 0;
+  color: #5f5f5f;
+  font-size: 0.95rem;
+}
+
+.order-button {
+  margin-top: 1rem;
+  background: #8a2b79;
+  color: white;
+  border: none;
+  padding: 0.9rem 1.25rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.order-button:hover {
+  background: #723061;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 13, 26, 0.7);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  z-index: 50;
+}
+
+.modal-content {
+  position: relative;
+  width: min(100%, 540px);
+  max-height: min(100vh, 90vh);
+  border-radius: 24px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 32px 90px rgba(15, 13, 26, 0.25);
+}
+
+.modal-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: transparent;
+  border: none;
+  color: #2a1a38;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-order-form {
+  padding: 2rem;
+}
+
+.modal-order-form h2 {
+  margin: 0 0 1rem;
+}
+
+.modal-order-form form {
+  display: grid;
+  gap: 1rem;
+}
+
+.modal-order-form label {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.modal-order-form input,
+.modal-order-form textarea {
+  width: 100%;
+  border: 1px solid #d9d4dc;
+  border-radius: 16px;
+  padding: 0.95rem 1rem;
+  font-size: 1rem;
+  color: #2a1a38;
+}
+
+.modal-order-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.field-error {
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+.success-message {
+  color: #2a7d2e;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.order-toast {
+  position: absolute;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2a7d2e;
+  color: white;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 12px 28px rgba(15, 13, 26, 0.25);
+  z-index: 60;
+  font-weight: 600;
+}
+
+.confirm-button {
+  margin-top: 0.5rem;
+  background: #8a2b79;
+  color: white;
+  border: none;
+  padding: 0.95rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.confirm-button:hover {
+  background: #723061;
+}
