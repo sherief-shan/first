@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import './Home.css';
 import ProductCard from '../components/ProductCard';
 
@@ -54,13 +54,11 @@ function Home() {
     setSelectedProductId(id);
   };
 
-  const closeModal = () => {
-   
+  const closeModal = useCallback(() => {
     setSelectedProductId(null);
     setCopied(false);
-     console.log('Closing modal, resetting' , selectedProductId, copied,selectedProduct);
-
-  };
+    console.log('Closing modal');
+  }, []);
 
   useEffect(() => {
     const handleEscape = (event) => {
@@ -76,7 +74,7 @@ function Home() {
     return () => {
       document.removeEventListener('keydown', handleEscape);
     };
-  }, [selectedProductId]);
+  }, [selectedProductId, closeModal]);
 
   const copyShareLink = async () => {
     if (!selectedProductId) {
