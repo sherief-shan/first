@@ -36,29 +36,61 @@ function ProductCard({ image, name, price, description, onClick }) {
   };
 
   const handleOrderSubmit = (event) => {
-    event.preventDefault();
-    const nextErrors = {};
+  event.preventDefault();
 
-    if (!orderData.name.trim()) {
-      nextErrors.name = 'Name is required';
-    }
-    if (!orderData.phone.trim()) {
-      nextErrors.phone = 'Phone number is required';
-    }
+  const nextErrors = {};
 
-    if (Object.keys(nextErrors).length > 0) {
-      setErrors(nextErrors);
-      return;
-    }
+  if (!orderData.name.trim()) {
+    nextErrors.name = 'Name is required';
+  }
 
-    setSuccessMessage(`Order placed for ${name}`);
-    setOrderData({ name: '', address: '', phone: '' });
-    setErrors({});
+  if (!orderData.phone.trim()) {
+    nextErrors.phone = 'Phone number is required';
+  }
 
-    setTimeout(() => {
-      closeOrderModal();
-    }, 2000);
-  };
+  if (Object.keys(nextErrors).length > 0) {
+    setErrors(nextErrors);
+    return;
+  }
+const message = `
+🛍️ *NEW ORDER*
+
+━━━━━━━━━━━━━━
+
+👗 Product
+${name}
+
+💰 Price
+${price}
+
+━━━━━━━━━━━━━━
+
+🙋 Customer Name
+${orderData.name}
+
+📞 Phone
+${orderData.phone}
+
+📍 Delivery Address
+${orderData.address || 'Not Provided'}
+
+━━━━━━━━━━━━━━
+
+
+`;
+  const whatsappNumber = "9188165425"
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    message
+  )}`;
+
+  window.open(url, "_blank");
+
+  setSuccessMessage(`Redirecting to WhatsApp...`);
+
+  setTimeout(() => {
+    closeOrderModal();
+  }, 1000);
+};
 
   useEffect(() => {
     if (!isOrderOpen) {
