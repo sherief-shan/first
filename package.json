@@ -1,7 +1,7 @@
 {
   "name": "first",
   "version": "0.1.0",
-  "homepage": "https://sherief-shan.github.io/first",
+  // "homepage": "https://sherief-shan.github.io/first",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
